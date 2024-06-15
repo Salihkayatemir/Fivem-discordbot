@@ -12,11 +12,11 @@ The sample command is shown in the `src>commands>admin>test-command.js` file.
 - `sunuculink` => Your discord server link.
 - `sunucuIP` => server IP.
 - `sunucukitapcigi` => Google form redirect. We use it in the `/mülakatembed` command. [Image](https://prnt.sc/lRyP2e8I-9dM)
-- `roller` => The roles we give to people in commands.
+- `roles` => The roles we give to people in commands.
     - `yetkiliekip` => is the role of the mod.
 - `embed` => Discord embed conf.
 - `emoji` => Emoji images we use in commands. **You should definitely adjust it.**
-- `kanal` => Channels where certain automated messages and logs will go.
+- `channels` => Channels where certain automated messages and logs will go.
 
 
 If you are sure that you have completed everything successfully, use "`node src/index.js`" or start.bat run the bot. You should be greeted with this [image](https://prnt.sc/LKQIZ75wNBXV). Feel free to contact me with any problems! [Click and join my server.](https://discord.gg/5UtVgdJcum) Or send a friend request to **ragederler**.

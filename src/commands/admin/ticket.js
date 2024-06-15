@@ -5,8 +5,8 @@ module.exports = {
 
     callback: async (client, interaction) => {
         await interaction.deferReply();
-        if (!interaction.member.roles.cache.get(config.roller.yetkiliekip)) {
-            interaction.editReply(`> You must be <@&${config.roller.yetkiliekip}> to use this command ${interaction.member}.`)
+        if (!interaction.member.roles.cache.get(config.roles.yetkiliekip)) {
+            interaction.editReply(`> You must be <@&${config.roles.yetkiliekip}> to use this command ${interaction.member}.`)
             return;
         }
 

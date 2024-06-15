@@ -13,8 +13,8 @@ module.exports = {
         await interaction.deferReply();
         const targetUserId = interaction.options.get('target-user').value;
         const targetUser = await interaction.guild.members.fetch(targetUserId);
-        if (!interaction.member.roles.cache.get(config.roller.yetkiliekip)) {
-            interaction.reply(`> You must be <@&${config.roller.yetkiliekip}> to use this command ${interaction.member}.`)
+        if (!interaction.member.roles.cache.get(config.roles.yetkiliekip)) {
+            interaction.reply(`> You must be <@&${config.roles.yetkiliekip}> to use this command ${interaction.member}.`)
         }
 
         if (!targetUser) {

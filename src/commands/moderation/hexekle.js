@@ -16,8 +16,8 @@ module.exports = {
         const steamhex = interaction.options.get('hexid')?.value;
         const targetUser = await interaction.guild.members.fetch(targetUserId);
         
-        if (!interaction.member.roles.cache.get(config.roller.yetkiliekip)) {
-            interaction.reply(`> You must be <@&${config.roller.yetkiliekip}> to use this command ${interaction.member}.`)
+        if (!interaction.member.roles.cache.get(config.roles.yetkiliekip)) {
+            interaction.reply(`> You must be <@&${config.roles.yetkiliekip}> to use this command ${interaction.member}.`)
         }
 
         if (!targetUser) {
@@ -52,7 +52,7 @@ module.exports = {
         try {
             await db.set(`hex.${targetUserId}`, steamhex);
             interaction.editReply(`I added ${targetUser}'s hex id => ${steamhex}`);
-            await client.channels.cache.get(config.kanal.hexroom).send({ embeds: [hexlog] });
+            await client.channels.cache.get(config.channels.hexroom).send({ embeds: [hexlog] });
         } catch (error) {
             interaction.editReply(`There was an error when giving hex id!\n\`\`\`${error}\`\`\``)
             console.log(`There was an error when giving hex id: ${error}`);

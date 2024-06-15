@@ -15,7 +15,7 @@ module.exports = async (client, interaction) => {
         }
         const guild = interaction.guild;
         const userKayits = {};
-        const usersWithModeratorRole = guild.members.cache.filter(member => member.roles.cache.has(config.roller.yetkiliekip)).map(member => member.user.id);
+        const usersWithModeratorRole = guild.members.cache.filter(member => member.roles.cache.has(config.roles.yetkiliekip)).map(member => member.user.id);
 
         RegisterModel.find({ registrar: { $in: usersWithModeratorRole } }).then(registercount => {
             registercount.forEach(i => {
@@ -81,7 +81,7 @@ module.exports = async (client, interaction) => {
         if (interaction.customId === "del") {
 
             if (interaction.values[0] == "delete2") {
-                if (interaction.member.roles.cache.has(config.roller.yetkiliekip)) return interaction.reply({ content: `You are an Staff, this option is available for the ticket holder `, ephemeral: true })
+                if (interaction.member.roles.cache.has(config.roles.yetkiliekip)) return interaction.reply({ content: `You are an Staff, this option is available for the ticket holder `, ephemeral: true })
 
 
                 interaction.channel.permissionOverwrites.edit(interaction.member, {
@@ -90,19 +90,19 @@ module.exports = async (client, interaction) => {
                 });
 
                 const kendiçözdü = new EmbedBuilder()
-                    .setDescription(`**${interaction.member} Sorununu Kendi Çözdüğünü Söyledi.** \n\n __${interaction.user.tag}'a Kanalı Görmeyi ve Yazmayı Kapattım!__`)
+                    .setDescription(`**${interaction.member} Sorununu Kendi Çözdüğünü Söyledi.** \n\n __${interaction.user.tag}'a channelsı Görmeyi ve Yazmayı Kapattım!__`)
                     .setAuthor({ name: `${interaction.member.displayName}`, iconURL: `${interaction.member.displayAvatarURL()}` })
                     .setThumbnail(`${interaction.member.displayAvatarURL()}`)
                     .setTimestamp()
                     .setFooter({ text: `${interaction.guild.name}`, iconURL: `${config.embed.image}` })
-                await interaction.reply({ embeds: [kendiçözdü], content: `<@&${config.roller.yetkiliekip}>` })
+                await interaction.reply({ embeds: [kendiçözdü], content: `<@&${config.roles.yetkiliekip}>` })
             }
 
 
 
             if (interaction.values[0] == "delete") {
-                const yetkinyok = new EmbedBuilder().setColor(config.embed.renk).setDescription(`Bu işlemi sadece <@&${config.roller.yetkiliekip}> Kapatabilir.**`);
-                if (!interaction.member.roles.cache.has(config.roller.yetkiliekip)) return interaction.reply({ embeds: [yetkinyok], ephemeral: true });
+                const yetkinyok = new EmbedBuilder().setColor(config.embed.renk).setDescription(`Bu işlemi sadece <@&${config.roles.yetkiliekip}> Kapatabilir.**`);
+                if (!interaction.member.roles.cache.has(config.roles.yetkiliekip)) return interaction.reply({ embeds: [yetkinyok], ephemeral: true });
 
                 const channel = interaction.channel;
                 interaction.channel.messages.fetch().then(async (messages) => {
@@ -129,7 +129,7 @@ module.exports = async (client, interaction) => {
                             .setThumbnail(`${interaction.user.displayAvatarURL()}`)
                             .setTimestamp()
                             .setFooter({ text: `${interaction.guild.name}`, iconURL: `${config.embed.image}` })
-                        await client.channels.cache.get(config.kanal.ticketlogu).send(
+                        await client.channels.cache.get(config.channels.ticketlogu).send(
                             { embeds: [embed], content: `**----------------------------------------------------------**` }
                         )
 
@@ -150,7 +150,7 @@ module.exports = async (client, interaction) => {
                             .setFooter({ text: `${interaction.guild.name}`, iconURL: `${config.embed.image}` })
 
 
-                        client.channels.cache.get(config.kanal.ticketlogu).send({ files: [atc], content: `**----------------------------------------------------------**`, embeds: [embed] })
+                        client.channels.cache.get(config.channels.ticketlogu).send({ files: [atc], content: `**----------------------------------------------------------**`, embeds: [embed] })
                         channel.delete()
                     }
                 });
@@ -170,7 +170,7 @@ module.exports = async (client, interaction) => {
                     type: ChannelType.GuildText,
                     name: `ticket-${interaction.user.username}`,
                     topic: `${interaction.user.id}`,
-                    parent: config.kanal.ticketkategori,
+                    parent: config.channels.ticketkategori,
                     permissionOverwrites: [
                         {
                             id: interaction.guild.id,
@@ -181,7 +181,7 @@ module.exports = async (client, interaction) => {
                             allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.AttachFiles]
                         },
                         {
-                            id: config.roller.yetkiliekip,
+                            id: config.roles.yetkiliekip,
                             allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.AttachFiles]
                         }
                     ]
@@ -191,15 +191,15 @@ module.exports = async (client, interaction) => {
                         .setTitle(`${config.emoji.diğerkategorileremoji} *Diğer kategoriler hakkında* bilet Açtı!`)
                         .setDescription('Lütfen yaşadığınız sorunu anlatır mısınız?, Resim, video atabilirsiniz.')
                         .setFooter({ text: `${interaction.guild.name}`, iconURL: `${config.embed.image}` })
-                    c.send({ embeds: [partenariat], content: `<@&${config.roller.yetkiliekip}> | ${interaction.user}`, components: [row] })
-                    interaction.reply({ content: `${config.emoji.onay} **Bilet Oluşturma Talebin Başarıyla Alındı! Kanal:** <#${c.id}>`, ephemeral: true })
+                    c.send({ embeds: [partenariat], content: `<@&${config.roles.yetkiliekip}> | ${interaction.user}`, components: [row] })
+                    interaction.reply({ content: `${config.emoji.onay} **Bilet Oluşturma Talebin Başarıyla Alındı! channels:** <#${c.id}>`, ephemeral: true })
                 })
             } else if (interaction.values[0] == "general") {
                 await interaction.guild.channels.create({
                     type: ChannelType.GuildText,
                     name: `ticket-${interaction.user.username}`,
                     topic: `${interaction.user.id}`,
-                    parent: `${config.kanal.ticketkategori}`,
+                    parent: `${config.channels.ticketkategori}`,
                     permissionOverwrites: [
                         {
                             id: interaction.guild.id,
@@ -210,7 +210,7 @@ module.exports = async (client, interaction) => {
                             allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.AttachFiles]
                         },
                         {
-                            id: config.roller.yetkiliekip,
+                            id: config.roles.yetkiliekip,
                             allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.AttachFiles]
                         }
                     ]
@@ -219,15 +219,15 @@ module.exports = async (client, interaction) => {
                         .setTitle(`${config.emoji.destekemojisi} *Destek, bug ve teknik sorunlar* hakkında bilet açtı!`)
                         .setDescription('Lütfen yaşadığınız sorunu anlatır mısınız?, Resim, video atabilirsiniz.')
                         .setFooter({ text: `${interaction.guild.name}`, iconURL: `${config.embed.image}` })
-                    c.send({ embeds: [plainte], content: `<@&${config.roller.yetkiliekip}> | ${interaction.user}`, components: [row] })
-                    interaction.reply({ content: `${config.emoji.onay} **Bilet Oluşturma Talebin Başarıyla Alındı! Kanal:** <#${c.id}>`, ephemeral: true })
+                    c.send({ embeds: [plainte], content: `<@&${config.roles.yetkiliekip}> | ${interaction.user}`, components: [row] })
+                    interaction.reply({ content: `${config.emoji.onay} **Bilet Oluşturma Talebin Başarıyla Alındı! channels:** <#${c.id}>`, ephemeral: true })
                 })
             } else if (interaction.values[0] == "shopping") {
                 await interaction.guild.channels.create({
                     type: ChannelType.GuildText,
                     name: `ticket-${interaction.user.username}`,
                     topic: `${interaction.user.id}`,
-                    parent: `${config.kanal.ticketkategori}`,
+                    parent: `${config.channels.ticketkategori}`,
                     permissionOverwrites: [
                         {
                             id: interaction.guild.id,
@@ -238,7 +238,7 @@ module.exports = async (client, interaction) => {
                             allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.AttachFiles]
                         },
                         {
-                            id: config.roller.yetkiliekip,
+                            id: config.roles.yetkiliekip,
                             allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.AttachFiles]
                         }
                     ]
@@ -247,8 +247,8 @@ module.exports = async (client, interaction) => {
                         .setTitle(`${config.emoji.donatemoji} *Donate alımlar ve ödemeler* hakkında bilet açtı!`)
                         .setDescription('Yetkililer Yazmadan Önce, Detaylı Bilgi Vererek Anlatabilirsin Veya Bekleyebilirsin.')
                         .setFooter({ text: `${interaction.guild.name}`, iconURL: `${config.embed.image}` })
-                    c.send({ embeds: [embed], content: `<@&${config.roller.yetkiliekip}> | ${interaction.user}`, components: [row] })
-                    interaction.reply({ content: `${config.emoji.onay} **Bilet Oluşturma Talebin Başarıyla Alındı! Kanal:** <#${c.id}>`, ephemeral: true })
+                    c.send({ embeds: [embed], content: `<@&${config.roles.yetkiliekip}> | ${interaction.user}`, components: [row] })
+                    interaction.reply({ content: `${config.emoji.onay} **Bilet Oluşturma Talebin Başarıyla Alındı! channels:** <#${c.id}>`, ephemeral: true })
                 })
             }
             else if (interaction.values[0] == "staff") {
@@ -256,7 +256,7 @@ module.exports = async (client, interaction) => {
                     type: ChannelType.GuildText,
                     name: `ticket-${interaction.user.username}`,
                     topic: `${interaction.user.id}`,
-                    parent: `${config.kanal.ticketkategori}`,
+                    parent: `${config.channels.ticketkategori}`,
                     permissionOverwrites: [
                         {
                             id: interaction.guild.id,
@@ -267,7 +267,7 @@ module.exports = async (client, interaction) => {
                             allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.AttachFiles]
                         },
                         {
-                            id: config.roller.yetkiliekip,
+                            id: config.roles.yetkiliekip,
                             allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.AttachFiles]
                         }
                     ]
@@ -277,8 +277,8 @@ module.exports = async (client, interaction) => {
                             }  *Oyun içi sorunlar ve rol hataları* Hakkında Ticket Açtı!`)
                         .setDescription('Oyun içi Sorunlar & Rol Hataları Olarak Ne Yaşadınız ?')
                         .setFooter({ text: `${interaction.guild.name}`, iconURL: `${config.embed.image}` })
-                    c.send({ embeds: [plainte], content: `<@&${config.roller.yetkiliekip}> | ${interaction.user}`, components: [row] })
-                    interaction.reply({ content: `${config.emoji.onay} **Bilet Oluşturma Talebin Başarıyla Alındı! Kanal:** <#${c.id}>`, ephemeral: true })
+                    c.send({ embeds: [plainte], content: `<@&${config.roles.yetkiliekip}> | ${interaction.user}`, components: [row] })
+                    interaction.reply({ content: `${config.emoji.onay} **Bilet Oluşturma Talebin Başarıyla Alındı! channels:** <#${c.id}>`, ephemeral: true })
                 })
             }
         }

@@ -18,14 +18,14 @@ module.exports = {
 
 
     callback: async (client, interaction) => {
-        if (!interaction.member.roles.cache.get(config.roller.yetkiliekip)) {
-            interaction.reply(`> You must be <@&${config.roller.yetkiliekip}> to use this command ${interaction.member}.`)
+        if (!interaction.member.roles.cache.get(config.roles.yetkiliekip)) {
+            interaction.reply(`> You must be <@&${config.roles.yetkiliekip}> to use this command ${interaction.member}.`)
         }
 
         const embed = new EmbedBuilder()
             .setColor(config.embed.renk)
             .setAuthor({ name: `${interaction.guild.name}`, iconURL: `${config.embed.image}` })
-            .setTitle("> Sunucu Aktif İyi Roller Dileriz.")
+            .setTitle("> Sunucu Aktif İyi roles Dileriz.")
             .setDescription(`\`\`\`Server IP : ${config.sunucuIP}\`\`\``)
             .setImage(`${config.embed.image}`)
             .setFooter({ text: `${interaction.guild.name}`, iconURL: `${config.embed.image}` })

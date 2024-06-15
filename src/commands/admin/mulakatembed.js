@@ -26,7 +26,7 @@ module.exports = {
             .setDescription(`- Sunucumuza Hoşgeldiniz. ForceV Ekibi olarak sizi aramızda görmeyi çok isteriz.
 - Siz değerli oyuncularımız için kaliteli ve güzel bir sunucu ortamı kurmaktayız. Bu nedenle sunucumuzda karakter-hikayesi ve karakter-gelişim kuralları uygulanmaktadır.
 - Sunucumuz Sosyal Hard RP temalıdır.       
-- Daha kaliteli roller için aile, baron vb. kuruluşları sunucumuzda desteklemiyoruz. Custom çete - oluşumunuz var ise yetkililere bildirerek ayrıcalıklardan faydalanabilirsiniz.
+- Daha kaliteli roles için aile, baron vb. kuruluşları sunucumuzda desteklemiyoruz. Custom çete - oluşumunuz var ise yetkililere bildirerek ayrıcalıklardan faydalanabilirsiniz.
 - Mülakatları geçmek için +18 yaşında olmanız(17 yaşındaysanız ve sesiniz uygunsa insiyatif uygulanabilir) ve genel rol terimlerini bilmeniz gerekmektedir.   
 - Oluşan sorunlarda sizlere en hızlı şekilde geri dönüş sağlamaktayız. `)
             .setThumbnail(config.embed.image)

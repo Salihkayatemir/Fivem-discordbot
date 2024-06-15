@@ -14,8 +14,8 @@ module.exports = {
         await interaction.deferReply();
 
         const targetUser = await interaction.guild.members.fetch(targetUserId);
-        if (!interaction.member.roles.cache.get(config.roller.yetkiliekip)) {
-            interaction.reply(`> You must be <@&${config.roller.yetkiliekip}> to use this command ${interaction.member}.`)
+        if (!interaction.member.roles.cache.get(config.roles.yetkiliekip)) {
+            interaction.reply(`> You must be <@&${config.roles.yetkiliekip}> to use this command ${interaction.member}.`)
         }
 
         if (!targetUser) {
@@ -53,7 +53,7 @@ module.exports = {
         try {
             await targetUser.kick({ reason });
             await interaction.editReply(`User ${targetUser} was kicked\nReason: ${reason}`);
-            await client.channels.cache.get(config.kanal.banlog).send({ embeds: [kicklog] })
+            await client.channels.cache.get(config.channels.banlog).send({ embeds: [kicklog] })
         } catch (error) {
             interaction.editReply(`There was an error when kicked:\n\`\`\`${error}\`\`\``)
             console.log(`There was an error when kicked: ${error}`);

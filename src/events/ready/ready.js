@@ -6,11 +6,10 @@ module.exports = (client) => {
     client.user.setPresence({
         activities: [{ name: `Rolleri`, type: ActivityType.Listening }],
         status: Status.Idle,
-        
     });
     
     
-    let channel = client.channels.cache.get(`${config.kanal.botbağlanmases}`)
+    let channel = client.channels.cache.get(`${config.channels.botbağlanmases}`)
     if (!channel) return;
 	const VoiceConnection = joinVoiceChannel({
 		channelId: channel.id,

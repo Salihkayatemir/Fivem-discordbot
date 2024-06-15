@@ -15,15 +15,15 @@ module.exports = {
 
   callback: async (client, interaction) => {
     await interaction.deferReply();
-    if (!interaction.member.roles.cache.get(config.roller.yetkiliekip)) {
-      interaction.reply(`> You must be <@&${config.roller.yetkiliekip}> to use this command ${interaction.member}.`)
+    if (!interaction.member.roles.cache.get(config.roles.yetkiliekip)) {
+      interaction.reply(`> You must be <@&${config.roles.yetkiliekip}> to use this command ${interaction.member}.`)
     }
 
     // Command Execute Area
     try {
       const guild = interaction.guild;
       const userCoins = {};
-      const usersWithModeratorRole = guild.members.cache.filter(member => member.roles.cache.has(config.roller.yetkiliekip)).map(member => member.user.id);
+      const usersWithModeratorRole = guild.members.cache.filter(member => member.roles.cache.has(config.roles.yetkiliekip)).map(member => member.user.id);
 
       Coin.find({ userID: { $in: usersWithModeratorRole } }).then(coins => {
         coins.forEach(coin => {

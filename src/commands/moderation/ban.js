@@ -16,8 +16,8 @@ module.exports = {
 
         const targetUser = await interaction.guild.members.fetch(targetUserId);
 
-        if (!interaction.member.roles.cache.get(config.roller.yetkiliekip)) {
-            interaction.reply(`> You must be <@&${config.roller.yetkiliekip}> to use this command ${interaction.member}.`)
+        if (!interaction.member.roles.cache.get(config.roles.yetkiliekip)) {
+            interaction.reply(`> You must be <@&${config.roles.yetkiliekip}> to use this command ${interaction.member}.`)
         }
 
         if (!targetUser) {
@@ -51,7 +51,7 @@ module.exports = {
         // Ban the targetUser
         try {
             await targetUser.ban({ reason });
-            client.channels.cache.get(config.kanal.banlog).send({embeds: [banlog]})
+            client.channels.cache.get(config.channels.banlog).send({embeds: [banlog]})
             await interaction.editReply(`User ${targetUser} was banned\nReason: ${reason}`);
         } catch (error) {
             interaction.editReply(`There was an error when banning!\n\`\`\`${error}\`\`\``)

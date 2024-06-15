@@ -20,8 +20,8 @@ module.exports = {
             const steam = interaction.options.get('steam-account')?.value;
             const targetUser = await interaction.guild.members.fetch(targetUserId);
 
-            if (!interaction.member.roles.cache.get(config.roller.yetkiliekip)) {
-                interaction.reply(`> You must be <@&${config.roller.yetkiliekip}> to use this command ${interaction.member}.`)
+            if (!interaction.member.roles.cache.get(config.roles.yetkiliekip)) {
+                interaction.reply(`> You must be <@&${config.roles.yetkiliekip}> to use this command ${interaction.member}.`)
             }
     
             if (!targetUser) {
@@ -58,8 +58,8 @@ module.exports = {
             // Setting role, data and name
             await db.set(`hex.${targetUserId}`, hexID);
             await targetUser.setNickname("IC ISIM")
-            await targetUser.roles.add(config.roller.whitelistrol)
-            await targetUser.roles.remove(config.roller.nonwhitelistrol)
+            await targetUser.roles.add(config.roles.whitelistrol)
+            await targetUser.roles.remove(config.roles.nonwhitelistrol)
 
             // sending logs
             const kayitlog = new EmbedBuilder()
@@ -76,8 +76,8 @@ module.exports = {
 
 
             interaction.editReply(`**I have successfully registered the contact!**\n> ${targetUser}'s\n> Hex ID: ${hexID}\n> Steam Account: ${steam}`);
-            client.channels.cache.get(config.kanal.kayitlog).send({ embeds: [kayitlog] })
-            client.channels.cache.get(config.kanal.hexroom).send({ embeds: [hexlog] })
+            client.channels.cache.get(config.channels.kayitlog).send({ embeds: [kayitlog] })
+            client.channels.cache.get(config.channels.hexroom).send({ embeds: [hexlog] })
         } catch (error) {
             interaction.channel.send(`There was an error when giving hex id!\n\`\`\`${error}\`\`\``)
             console.log(`There was an error when giving hex id: ${error}`);
