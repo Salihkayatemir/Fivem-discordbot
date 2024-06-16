@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { Client, IntentsBitField, EmbedBuilder } = require("discord.js");
+const { Client, IntentsBitField, EmbedBuilder, ReactionCollector } = require("discord.js");
 const eventHandler = require("./handlers/eventHandler");
 const config = require("../config.json");
 const mongoose = require("mongoose");
@@ -30,14 +30,5 @@ const client = new Client({
   ],
 });
 eventHandler(client);
-
-client.on("messageCreate", async message => {
-  if (message.content === "fgir") {
-    client.emit("guildMemberAdd", message.member || (await message.guild.fetchMember(message.author)));
-  }
-  if (message.content === "fçık") {
-    client.emit("guildMemberRemove", message.member || (await message.guild.fetchMember(message.author)));
-  }
-})
 
 client.login(process.env.TOKEN);
