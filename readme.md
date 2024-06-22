@@ -1,4 +1,4 @@
-# Source Javascript Discord Bot `(V14.14.1)`
+# Javascript Discord Bot `(V14.14.1)`
 **This is a fivem discord bot. This project is fully open to development and you can use "Fork".** This project uses mongoose and node.js. Don't forget to fill in the `config.json` and `.env` files. You can develop it as you wish.
 
 ## Significant:
