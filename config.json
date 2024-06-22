@@ -1,47 +1,50 @@
 {
-    "Guild_ID": "1223241215399559251",
+    "Guild_ID": "1222709168750723195",
     "Admin": [
         "541573707337039904"
     ],
     "sunucuIP": "45.147.46.34",
     "sunuculink": "https://discord.gg/kK67r925bn",
     "sunucukitapcigi": "https://shorturl.at/qGJU8",
-    "roller": {
-        "yetkiliekip": "1223242023256068167",
-        "whitelistrol": "1223242070878191636",
+    "roles": {
+        "yetkiliekip": "1222716616945696848",
+        "whitelistrol": "1222716651301244988",
         "nonwhitelistrol": "1223242083448520755",
         "onayperm": "1223242076091580416",
-        "logYetkiliEkip": "1222716616945696848"
+        "authorizedTeam": "1222716616945696848"
     },
     "embed": {
         "renk": "#982020",
-        "image": "https://cdn.discordapp.com/attachments/1222904578886864968/1245125683118866442/force.png?ex=66579d28&is=66564ba8&hm=b6f5d2bb0dae486e2b2fbe20c8e6fbf3be5aa64e07a197aab4ebc102cc47ee3e&"
+        "image": "https://i.imgur.com/faS0bSB.png"
     },
     "emoji": {
-        "onay": "<:onay:1237770699049795647>",
-        "red": "<:red:1237770700614271110>",
-        "tik": "<a:yes:1223292434856017940>",
-        "no": "<a:no:1223292433069117440>",
+        "onay": "<a:yes:1223292434856017940>",
+        "red": "<a:no:1223292433069117440>",
+        "tik": "<:onay:1237770699049795647>",
+        "no": "<:red:1237770700614271110>",
         "destekemojisi": "<:info:1237445261299548271>",
         "donatemoji": "<:coin:1237445259688935465>",
         "oyuniçisorunemoji": "<:users:1237445263136919596>",
-        "diğerkategorileremoji": "<:tag:1237445469031108661> ",
-        "kategorisifirlaemoji": "<a:offline:1223291733622784120>",
-        "kopke":"<:sasirankopke:1236846144298942474>"
+        "diğerkategorileremoji": "<:tag:1237445469031108661>",
+        "kategorisifirlaemoji": "<:onay:1237770699049795647>",
+        "kopke":"<:kopke:1236845737929740288>",
+        "kalp": "<a:bkalp:1223292334578470972>"
     },
-    "kanal": {
+    "channels": {
         "whitelistbeklemelog": "1237807624175620198",
         "kayitbeklemeodasi": "1223242586526056519",
-        "hoşgeldinizlog": "1223242229829599373",
-        "sesbildirimtextkanal": "1237188396091314217",
+        "welcomeLog": "1223242229829599373",
+        "sesbildirimtextchannels": "1237807624175620198",
         "botbağlanmases": "1223242565273391155",
         "banlog": "1237188250888830996",
         "hexroom": "1237188216268783718",
         "kayitlog": "1237188143795408916",
-        "seslog": "1237188108118921217",
-        "oyundankareler": "1223242338285916220",
+        "imageFromGame": "1223242338285916220",
         "whitelistçıkışlog": "1237187798289879101",
         "ticketlogu": "1237187673223856249",
-        "ticketkategori": "1237156099367374960"
+        "ticketkategori": "1237156099367374960",
+        "sunucuDurum": "1223242331843465308",
+        "icOnay": "1223242464471814164",
+        "auditLog": "1223242311136182272"
     }
 }
